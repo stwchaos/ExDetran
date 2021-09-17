@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXDETRAN</title>
+  <style>
+    body{
+      color: rgb(255, 255, 255);
+      font: normal 19px arial;
+      text-align: center;
+      margin: 50px;
+      border: 5px solid white;
+      padding: 0 20px 20px 20px;
+      box-shadow: 3px 3px rgb(0, 0, 0), -1em 0 0.4em rgba(255, 255, 255, 0.342);
+    }
+    input{
+      letter-spacing: 1px;
+      width: 150px;
+      text-align: center;
+      font: 15px arial;
+      text-align: center;
+    }
+    .fi{
+      background-image: url(/Images/car.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    
+  </style>
+
+</head>
+<body class="fi">
+ 
+  <h1>Sistema de multas</h1>
+  Velocidade do carro: <input type="number" name="vel" id="vel"> km/h
+  <input type="button" value="Verificar" onclick="calcular()">
+  <div id="res">
+
+  </div>
+  <script>
+    function calcular(){
+      var v = document.querySelector('input#vel')
+      var res = document.querySelector('div#res')
+      var vel = Number(v.value)
+      var lim = 80
+
+      if (vel >= lim){
+        res.innerHTML = `<p>Sua velocidade atual é de <strong>${vel}km/h</strong> e o limite de velocidade é ${lim}km/h. Você foi <strong>MULTADO!</strong></p>`
+      } else {
+        res.innerHTML = `<p>Sua velocidade atual é de <strong>${vel}km/h</strong> e o limite de velocidade é ${lim}km/h.</p>`
+      }
+      
+      res.innerHTML += `<p>Dirija sempre utilizando o cinto de segurança!</p>`
+    }
+  </script>
+</body>
+</html>
